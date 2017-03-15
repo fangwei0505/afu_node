@@ -2,7 +2,8 @@
  * 定时执行程序
  * */
 
-var schedule = require('node-schedule');
+var schedule = require('node-schedule'),
+    moment=require('moment');
 
 // cron表达式
 // 每月的1日的凌晨2点调度任务:  0 0 2 1 * ? *
@@ -10,7 +11,7 @@ var schedule = require('node-schedule');
 // 每隔30秒执行一次:  30 * * * * * ?
 var scheduleMyJob = function () {
     schedule.scheduleJob('30 * * * * *', function () {
-        console.log("run job：" + new Date());
+        console.log("run job：" + moment().format('YYYY-MM-DD HH:mm:ss'));
     });
 }
 
