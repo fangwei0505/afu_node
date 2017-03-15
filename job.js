@@ -10,7 +10,7 @@ var schedule = require('node-schedule');
 // 每隔30秒执行一次:  30 * * * * * ?
 var scheduleMyJob = function () {
     schedule.scheduleJob('30 * * * * *', function () {
-        console.log("run：" + new Date());
+        console.log("run job：" + new Date());
     });
 }
 
