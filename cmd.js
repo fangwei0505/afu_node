@@ -20,5 +20,6 @@ function get_month(month) {
 
 function pr_batch(batch_code) {
     console.log('存储过程同步销售数据');
+    log4js.logger.info("记录日志")
     /*-----------填写自己的逻辑-------------*/
 }
