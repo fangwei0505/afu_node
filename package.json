@@ -1,7 +1,7 @@
 {
   "name": "afu_node",
   "version": "1.0.0",
-  "description": "afu_node 包含主要应用模块和帮助方法",
+  "description": "afu_node 包含主要应用模块、数据库操作帮助",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
