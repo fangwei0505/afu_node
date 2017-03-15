@@ -1,5 +1,5 @@
 /**
- *手动执行文件
+ *手动执行程序
  */
 var service = require('./service/erp_to_scm_market')
 
@@ -12,6 +12,6 @@ service.erp_get_order_market(function (result) {
 /**
  * 添加数据到scm
  */
-service.scm_add_shop_sale(function(result){
-    console.log(result);
+service.scm_add_shop_sale(function (result) {
+    console.log("数据id：" + result);
 })
