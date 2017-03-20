@@ -17,7 +17,7 @@ module.exports = {
         })
     },
     erp_get_order_market: function (callback) {
-        var sql_str = "SELECT TOP 10 * FROM OrderFlow.OrderInfo(NOLOCK); ";
+        var sql_str = "SELECT TOP 10 * FROM table(NOLOCK); ";
         mssql.query(sql_str, function (error, result) {
             if (error) {
                 log4js.logger.info("查询失败.");
