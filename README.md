@@ -16,6 +16,8 @@ afu_node 阿芙内部开发小应用系统的简单模板，包含主要应用�
   `mssql,mysql`数据操作,
   
   `node-schedule 定时任务`
+
+  `request 请求响应`
   
   > 说明 
   
@@ -28,4 +30,6 @@ afu_node 阿芙内部开发小应用系统的简单模板，包含主要应用�
   4.node-schedule 自动执行任务模块,项目中已给出案例,[cron表达式生成器地址](http://cron.qqe2.com/)
   
   5.commander 命令行模块在cmd.js中已给出使用方法
+
+  6.http_helper 简单封装GET、POST 请求帮助方法
   
