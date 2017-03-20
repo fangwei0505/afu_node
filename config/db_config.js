@@ -3,10 +3,11 @@
  *
  */
 
+
 module.exports = {
     mssql_connection: {
         user: 'sa',
-        password: '123456',
+        password: '12345',
         server: '127.0.0.1',
         database: 'db',
         port: 2888,
@@ -22,7 +23,7 @@ module.exports = {
     mysql_connnection: {
         host: '127.0.0.1',
         user: 'root',
-        password: '123456',
+        password: '12345',
         database: 'db',
         port: 3306
     }
