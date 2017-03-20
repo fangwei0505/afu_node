@@ -1,5 +1,5 @@
-var mssql = require('../db_helper/sqlserver'),
-    mysql = require('../db_helper/mysql'),
+var mssql = require('./sqlserver'),
+    mysql = require('./mysql'),
     log4js = require("../config/log_conf"),
     enumerable = require('linq'),
     moment = require('moment');
