@@ -18,6 +18,8 @@ afu_node 阿芙内部开发小应用系统的简单模板，包含主要应用�
   `node-schedule 定时任务`
 
   `request 请求响应`
+
+  `node-mysql-transaction mysql事务模块`
   
   > 说明 
   
@@ -32,4 +34,5 @@ afu_node 阿芙内部开发小应用系统的简单模板，包含主要应用�
   5.commander 命令行模块在cmd.js中已给出使用方法
 
   6.http_helper 简单封装GET、POST 请求帮助方法
-  
+
+  7.common_helper 生成批量sql语句帮助方法
