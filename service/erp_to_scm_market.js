@@ -51,5 +51,15 @@ module.exports = {
         }
         callback(sqlArr);
     },
-
+    batch_insert_tran_users: function (sql_arr, callback) {
+        var del_sql_str = "delete table users;";
+        sql_arr.unshift(del_sql_str);
+        mysql.tran(sql_arr, function (result) {
+            if (result == "commit") {
+                callback(true)
+            } else {
+                callback(false)
+            }
+        })
+    }
 }
