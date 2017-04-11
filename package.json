@@ -26,6 +26,7 @@
     "moment": "^2.17.1",
     "mssql": "^3.3.0",
     "mysql": "^2.13.0",
+    "node-mysql-transaction": "^0.2.1",
     "node-schedule": "^1.2.1",
     "request": "^2.81.0"
   }
