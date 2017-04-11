@@ -1,4 +1,5 @@
 var mysql = require("mysql"),
+    transaction = require('node-mysql-transaction'),
     db_config = require("../config/db_config");
 
 var db = {};
@@ -6,6 +7,16 @@ var db = {};
  * 数据库连接池
  */
 var pool = mysql.createPool(db_config.mysql_connnection);
+
+/**
+ * 事务连接
+ */
+var trcon = transaction({
+    // mysql driver set
+    connection: [mysql.createConnection, db_config.mysql_connnection],
+    dynamicConnection: 32,
+    timeout: 2000 * 10
+});
 
 /**
  * 执行任意sql语句
@@ -27,4 +38,20 @@ db.query = function (sql, callback) {
     });
 };
 
+/**
+ * 执行事务操作
+ * @param sqlArr sql语句数组
+ * @param callback
+ */
+db.tran = function (sqlArr, callback) {
+    var chain = trcon.chain();
+    chain.on('commit', function () {
+        callback("commit")
+    }).on('rollback', function (err) {
+        console.log(err);
+    });
+    for (var i = 0; i < sqlArr.length; i++) {
+        chain.query(sqlArr[i]);
+    }
+};
 module.exports = db;

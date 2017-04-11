@@ -1,4 +1,5 @@
 var mssql = require('mssql'),
+
     db_config = require('../config/db_config');
 
 var db = {};
