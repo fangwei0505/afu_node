@@ -2,6 +2,7 @@ var mssql = require('../helper/sqlserver'),
     mysql = require('../helper/mysql'),
     log4js = require("../config/log_conf"),
     enumerable = require('linq'),
+    common = require("../helper/common_helper"),
     moment = require('moment');
 
 module.exports = {
@@ -28,6 +29,27 @@ module.exports = {
             var top5 = enumerable.from(result).take(5).toArray();
             callback(top5);
         });
-    }
+    },
+    //返回生成的批量insert语句
+    get_insert_sql: function (user_list, callback) {
+        var num = 100; //分组基数(根据数据库限制一条insert语句的长度，具体按照实际情况定)
+        var group_num = Math.ceil(user_list.length / num);
+        var sqlArr = new Array();
+        var fieldArr = {
+            "code": ["Code", true],
+            "status": ["STAT", true],
+            "age": ["Age", false],
+            "created": ["Created", true],
+            "updated": ["Updated", true],
+            "creater": ["Creater", true],
+            "updater": ["Updater", true]
+        };
+        for (var i = 0; i < group_num; i++) {
+            var top_list = enumerable.from(user_list).skip(i * num).take(num).toArray();
+            var sqlStr = common.create_insert_sql("users",fieldArr, top_list);
+            sqlArr.push(sqlStr);
+        }
+        callback(sqlArr);
+    },
 
 }
